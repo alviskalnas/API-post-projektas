@@ -1,5 +1,14 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .main-container {
   width: 100%;
+  max-width: 1900px;
+  margin: 0 auto;
   height: 100%;
   position: relative;
   background: #e6e7e5;
@@ -16,7 +25,7 @@
 
 
 .album-header {
-  width: 2300px;
+  width: 1820px;
   position: absolute;
   z-index: 2;
   top: 30px;
@@ -36,6 +45,7 @@ nav {
   width: 900px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
 nav ul li {
@@ -54,7 +64,7 @@ a {
   background: #e6e7e5;
 }
 .album-item a {
-  color: #333;
+  color: var(--black);
   font-size: 14px;
   display: flex;
   flex-direction: row;

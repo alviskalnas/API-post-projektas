@@ -1,9 +1,18 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .main-con {
     width: 100%;
+    max-width: 1900px;
+    margin: 0 auto;
     height: 100%;
     position: relative;
     background: #e6e7e5;
-}
+  }
 
 img {
     position: relative;
@@ -15,7 +24,7 @@ img {
 }
 
 .post-header {
-    width: 2300px;
+    width: 1820px;
     position: absolute;
     z-index: 2;
     top: 30px;
@@ -36,8 +45,9 @@ nav {
     width: 900px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-  }
+}
 nav ul li {
     display: inline-block;
     
@@ -55,23 +65,23 @@ nav ul li a {
 }
 p {
     font-family: 'inter';
-    color: #333;
+    color: var(--black);
     font-size: 18px;
 }
 span {
     font-family: 'Inter';
-    color: #333;
+    color: var(--black);
     font-size: 18px;
 }
 .post-inf a {
-    color: #333;
+    color: var(--black);
     font-size: 30px;
     padding-left: 20px;
 }
 .post-inf ul li {
     display: inline-block;
     font-family: 'Inter';
-    color: #333;
+    color: var(--black);
     padding-top: 20px;
 }
 .post-inf ul:last-of-type {

@@ -1,8 +1,18 @@
-.main-con {
-width: 100%;
-height: 100%;
-position:relative;
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
+
+.main-con {
+    width: 100%;
+    max-width: 1900px;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+    background: #e6e7e5;
+  }
 img {
     position: relative;
     z-index: 1;
@@ -10,8 +20,8 @@ img {
     height: 700px;
 }
 .users-header {
-    width: 2300px;
-    position:absolute;
+    width: 1820px;
+    position: absolute;
     z-index: 2;
     top: 30px;
     left: 40px;
@@ -38,8 +48,9 @@ nav {
     width: 900px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-  }
+}
 nav ul li {
     display: inline-block;
     padding-left: 40px;
