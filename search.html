@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results</title>
+  <link rel="stylesheet" href="search.css">
+</head>
+<body>
+    <header>
+        <a href="./index.html"><h2 class="main-name">API-posts</h2></a>
+        <nav>
+            <ul id="nav-links"></ul>
+        </nav>
+    </header>
+   
+  <h1>Search Results</h1>
+  <div id="results"></div>
+
+  <form action="search.html">
+    <input type="text" name="query">
+    <select name="category">
+      <option value="posts">Posts</option>
+      <option value="users">Users</option>
+      <option value="comments">Comments</option>
+      <option value="albums">Albums</option>
+      <option value="photos">Photos</option>
+    </select>
+    <input type="submit" value="Search">
+  </form>
+<script src="search.js"></script>  
+</body>

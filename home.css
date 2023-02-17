@@ -1,0 +1,63 @@
+
+.main-con {
+width: 100%;
+height: 100%;
+position:relative;
+}
+img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 700px;
+}
+.home-header {
+    width: 2300px;
+    position:absolute;
+    z-index: 2;
+    top: 30px;
+    left: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.home-con {
+    position:absolute;
+    z-index: 2;
+    top: 350px;
+    bottom: 350px;
+    left: 1180px;
+    color:aliceblue;
+    font-size: 60px;
+    font-family: 'Inter';
+}
+.main-name {
+    color: aliceblue;
+    font-size: 30px;
+    font-family: 'Inter';
+}
+nav {
+    width: 900px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+nav ul li {
+    display: inline-block;
+    padding-left: 40px;
+}
+a {
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 30px;
+    font-family: 'Inter';
+}
+.footer {
+    width: 100% - 20px;
+    border: inset;
+}
+h3 {
+    padding: 0 0 0 40px;
+    color:rgba(91,173,58,1) ;
+    font-family: 'Inter';
+}

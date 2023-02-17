@@ -1,0 +1,59 @@
+.main-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #e6e7e5;
+  }
+  
+  .header-img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+    object-fit: cover;
+  }
+  
+  
+  .album-header {
+    width: 2300px;
+    position: absolute;
+    z-index: 2;
+    top: 30px;
+    left: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .main-name {
+    display: inline-block;
+    color: aliceblue;
+    font-size: 30px;
+    font-family: 'Inter';
+  }
+  nav {
+    width: 900px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  nav ul li {
+    display: inline-block;
+    padding-left: 40px;
+    font-family: 'Inter';
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 30px;
+    font-family: 'Inter';
+  }
+
+  li {
+    display: inline-block;
+    padding: 10px;
+  }
+  
+  

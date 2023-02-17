@@ -1,0 +1,141 @@
+.main-con {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #e6e7e5;
+}
+
+img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+.user-header {
+    width: 2300px;
+    position: absolute;
+    z-index: 2;
+    top: 30px;
+    left: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-name {
+    color: aliceblue;
+    font-size: 30px;
+    font-family: 'Inter';
+}
+nav {
+    width: 900px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+nav ul li {
+    display: inline-block;
+    padding-left: 40px;
+    font-family: 'Inter';
+}
+
+a {
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 30px;
+    font-family: 'Inter';
+}
+
+.user-inf p {
+    font-family: 'Inter';
+}
+
+.user-inf p a {
+    font-family: 'Inter';
+    color: #29d0f0;
+    font-size: 20px;
+}
+
+h2 {
+    font-family: 'Inter';
+}
+
+.post-album {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.user-post {
+
+    width: 710px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-post ul li {
+    display: block;
+    padding-top: 10px;
+}
+
+.user-post ul li a {
+    font-family: 'Inter';
+    font-size: 20px;
+    color: #333;
+}
+
+.user-album {
+
+    width: 710px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-album ul li {
+    display: block;
+    padding-top: 10px;
+}
+
+.user-album ul li a {
+    font-family: 'Inter';
+    font-size: 20px;
+    color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+    width: 100% - 20px;
+    border: inset;
+}
+
+h3 {
+    padding: 0 0 0 40px;
+    color: rgba(91, 173, 58, 1);
+    font-family: 'Inter';
+}
