@@ -1,5 +1,3 @@
-
-
 async function getPosts() {
   const queryParams = location.search;
   const urlParams = new URLSearchParams(queryParams);
@@ -9,7 +7,7 @@ async function getPosts() {
   if (userId) {
   response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}&_embed=comments&_limit=20`);
   } else {
-  response = await fetch(`https://jsonplaceholder.typicode.com/posts?_embed=comments&_limit=30`);
+  response = await fetch(`https://jsonplaceholder.typicode.com/posts?_embed=comments&_limit=20`);
   }
   const posts = await response.json();
   const pageContent = document.querySelector('#posts-list');

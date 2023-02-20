@@ -1,24 +1,13 @@
-import { fetchData } from "./functions.js";
 
 async function getAlbum() {
   const queryParams = location.search;
   const urlParams = new URLSearchParams(queryParams);
   const albumId = urlParams.get('id');
   
-  const response = await fetchData(`https://jsonplaceholder.typicode.com/albums/${albumId}?_expand=user&_embed=photos`);
-  const album = response.data;
-  if (!album) {
-    console.error("Album not found.");
-    return;
-  }
-
-  const userResponse = await fetchData(`https://jsonplaceholder.typicode.com/users/${album.userId}`);
-  const user = userResponse.data;
-
-  if (!user) {
-    console.error("User not found.");
-    return;
-  }
+  const response = await fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}`);
+  const album = await response.json();
+  const userResponse = await fetch(`https://jsonplaceholder.typicode.com/users/${album.userId}`);
+  const user = await userResponse.json();
 
   const albumInfo = document.querySelector('#album-info');
   
@@ -45,9 +34,6 @@ async function getAlbum() {
 }
 
 getAlbum();
-
-
-
 
 
   
