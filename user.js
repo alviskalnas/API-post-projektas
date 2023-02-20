@@ -1,3 +1,5 @@
+import { firstLetterUpperCase } from "./functions.js";
+
 async function getUserInfo() {
     const queryParams = location.search;
     const urlParams = new URLSearchParams(queryParams);
@@ -32,7 +34,6 @@ async function getUserInfo() {
 getUserInfo();
 
 
-
 const queryParams = location.search;
 const urlParams = new URLSearchParams(queryParams);
 const userId = urlParams.get('user_id') || 1;
@@ -47,7 +48,7 @@ async function getUserAlbums() {
         <h2>User albums:</h2>
         <ul>
             ${albums.map(album => `
-                <li><a href="album.html?id=${album.id}">${album.title}</a></li>
+            <li><a href="album.html?id=${album.id}">${firstLetterUpperCase(album.title)}</a></li>
             `).join('')}
         </ul>
     `;
@@ -64,13 +65,14 @@ async function getUserPosts() {
         <h2>User Posts:</h2>
         <ul>
             ${posts.map(post => `
-                <li><a href="post.html?id=${post.id}">${post.title}</a></li>
+            <li><a href="post.html?id=${post.id}">${firstLetterUpperCase(post.title)}</a></li>
             `).join('')}
         </ul>
     `;
 }
 
 getUserPosts();
+
 
 
 (function () {

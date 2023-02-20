@@ -1,39 +1,28 @@
+import { fetchData } from "./functions.js";
 
 async function getAlbum() {
-  const queryParams = location.search;
-  const urlParams = new URLSearchParams(queryParams);
-  const albumId = urlParams.get('id');
-  
-  const response = await fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}`);
-  const album = await response.json();
-  const userResponse = await fetch(`https://jsonplaceholder.typicode.com/users/${album.userId}`);
-  const user = await userResponse.json();
+const queryParams = location.search;
+const urlParams = new URLSearchParams(queryParams);
+const albumId = urlParams.get('id');
 
-  const albumInfo = document.querySelector('#album-info');
-  
-  albumInfo.innerHTML = `
-    <h2>${album.title}</h2>
-    <span>Posted by: </span>
-    <a href="./user.html?id=${user.id}">${user.name}</a>
-    <h3>Album Images:</h3>
-    <ul>
-  `;
+const album = await fetchData(`https://jsonplaceholder.typicode.com/albums/${albumId}`);
+const user = await fetchData(`https://jsonplaceholder.typicode.com/users/${album.userId}`);
 
-  const imagesResponse = await fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${albumId}&_limit=10`);
-  const images = await imagesResponse.json();
+const albumInfo = document.querySelector('#album-info');
 
-  images.forEach(image => {
-    albumInfo.innerHTML += `
-      <li>
-        <img src="${image.thumbnailUrl}" />
-      </li>
-    `;
-  });
-  
-  albumInfo.innerHTML += '</ul>';
+albumInfo.innerHTML =` <h2>${album.title}</h2> <span>Posted by: </span> <a href="./user.html?id=${user.id}">${user.name}</a> <h3>Album Images:</h3> <ul>`;
+
+const images = await fetchData(`https://jsonplaceholder.typicode.com/photos?albumId=${albumId}&_limit=10`);
+
+images.forEach(image => {
+albumInfo.innerHTML += `<li> <img src="${image.thumbnailUrl}" /> </li>` ;
+});
+
+albumInfo.innerHTML += '</ul>';
 }
 
 getAlbum();
+
 
 
   

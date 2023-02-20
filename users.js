@@ -17,17 +17,18 @@ async function getUsers() {
     localStorage.setItem('userOrder', JSON.stringify(sortedUsers.map(user => user.id)));
   }
 
-  sortedUsers.forEach(async user => {
+  for (const user of sortedUsers) {
     const postsResponse = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`);
     const posts = await postsResponse.json();
     const userItem = document.createElement('li');
     userItem.classList.add('user-item');
     userItem.innerHTML = `<a href="./user.html?user_id=${user.id}">${user.name}</a> (${posts.length})`;
     usersList.append(userItem);
-  });
+  }
 }
 
 getUsers();
+
 
 
 const navLinks = [

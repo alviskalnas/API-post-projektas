@@ -3,7 +3,7 @@ const query = queryParams.get('query');
 const category = queryParams.get('category');
 const results = document.querySelector('#results');
 
-fetch(`https://jsonplaceholder.typicode.com/${category}?q=${query}`)
+fetch(`https://jsonplaceholder.typicode.com/${category}`)
   .then(response => response.json())
   .then(data => {
     if (data.length === 0) {
@@ -20,6 +20,7 @@ fetch(`https://jsonplaceholder.typicode.com/${category}?q=${query}`)
     results.innerHTML = '<p>An error occurred while fetching the results. Please try again later.</p>';
     console.error(error);
   });
+
 
 
   const navLinks = [

@@ -13,9 +13,9 @@ async function init() {
     body: JSON.stringify(newUserData),
   };
 
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts', fetchParams);
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts', fetchParams);
 
-  const newPost = await res.json();
+  const newPost = await response.json();
 
   console.log(newPost);
   console.log(newPost.title);
