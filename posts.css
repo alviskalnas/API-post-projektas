@@ -1,3 +1,9 @@
+:root {
+    --black: #333;
+    --lightgray: #e6e7e5;
+    --aliceblue: aliceblue;
+}
+
 html,
 body {
     height: 100%;
@@ -6,13 +12,15 @@ body {
 }
 
 .main-con {
-    width: 100%;
-    max-width: 1900px;
+    width: 1404px;
     margin: 0 auto;
-    height: 100%;
     position: relative;
-    background: #e6e7e5;
+    background: var(--lightgray);
   }
+
+.main-container {
+    height: 740px;
+}
 
 img {
     position: relative;
@@ -24,7 +32,7 @@ img {
 }
 
 .posts-header {
-    width: 1820px;
+    width: 1320px;
     position: absolute;
     z-index: 2;
     top: 30px;
@@ -34,18 +42,36 @@ img {
     justify-content: space-between;
     align-items: center;
 }
-
+.text {
+    border-block-color: revert;
+    border-color: teal;
+    border-radius: 5px;
+}
+.submit {
+    border-block-color: revert;
+    border-color: teal;
+    border-radius: 5px;
+    font-family: 'Inter';
+}
+.submit:hover {
+    border-block-color: revert;
+    border-color: teal;
+    border-radius: 5px;
+    font-family: 'Inter';
+    background:lightblue
+}
 .posts-list {
     display: flex;
     flex-direction: column;
 }
 .main-name {
-    color: aliceblue;
+    display: inline-block;
+    color: var(--aliceblue);
     font-size: 30px;
     font-family: 'Inter';
 }
 nav {
-    width: 900px;
+    width: 800px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -53,10 +79,10 @@ nav {
 }
 nav ul li {
     display: inline-block;
-    
 }
 nav ul li a {
-    color: aliceblue;
+    text-decoration: none;
+    color: var(--aliceblue);
     font-size: 30px;
     font-family: 'Inter';
     padding-left: 40px;
@@ -71,7 +97,7 @@ li.post-item {
     color: #668ea7;
     font-weight: 700;
 }
-a {
+.main-container a {
     text-decoration: none;
     color: var(--black);
     font-size: 20px;

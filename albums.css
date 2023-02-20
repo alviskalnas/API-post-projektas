@@ -1,3 +1,9 @@
+:root {
+  --black: #333;
+  --lightgray: #e6e7e5;
+  --aliceblue: aliceblue;
+}
+
 html,
 body {
     height: 100%;
@@ -6,12 +12,10 @@ body {
 }
 
 .main-container {
-  width: 100%;
-  max-width: 1900px;
+  width: 1404px;
   margin: 0 auto;
-  height: 100%;
   position: relative;
-  background: #e6e7e5;
+  background: var(--lightgray);
 }
 
 .header-img {
@@ -23,9 +27,9 @@ body {
   object-fit: cover;
 }
 
-
 .album-header {
-  width: 1820px;
+  width: 1320px;
+  height: 85.781px;
   position: absolute;
   z-index: 2;
   top: 30px;
@@ -35,14 +39,32 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-
+.text {
+  border-block-color: revert;
+  border-color: teal;
+  border-radius: 5px;
+}
+.submit {
+  border-block-color: revert;
+  border-color: teal;
+  border-radius: 5px;
+  font-family: 'Inter';
+}
+.submit:hover {
+  border-block-color: revert;
+  border-color: teal;
+  border-radius: 5px;
+  font-family: 'Inter';
+  background:lightblue
+}
 .main-name {
-  color: aliceblue;
+  display: inline-block;
+  color: var(--aliceblue);
   font-size: 30px;
   font-family: 'Inter';
 }
 nav {
-  width: 900px;
+  width: 800px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -50,31 +72,49 @@ nav {
 }
 nav ul li {
   display: inline-block;
-  padding-left: 40px;
-  font-family: 'Inter';
 }
-a {
+nav ul li a {
   text-decoration: none;
-  color: aliceblue;
+  color: var(--aliceblue);
   font-size: 30px;
   font-family: 'Inter';
+  padding-left: 40px;
 }
 
-.albums-list {
-  background: #e6e7e5;
-}
-.album-item a {
-  color: var(--black);
-  font-size: 14px;
-  display: flex;
-  flex-direction: row;
-}
 a img {
   width: 50px;
   height: 50px;
+  padding: 5px 0 5px 20px;
+  border-bottom: var(--black) solid;
 }
-h2 {
+.album-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+.album-item h2 {
   padding-left: 50px;
+}
+.album-item h2 a {
+  text-decoration: none;
+font-family: 'Inter';
+  color: var(--black);
+  font-size: 14px;
+}
+.album-item span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.album-item h4 {
+  font-family: 'Inter';
+  font-size: 16px;
+  padding-left: 20px;
+}
+.album-item span a {
+  padding-left: 20px;
+  color: lightblue;
 }
 
 .footer {

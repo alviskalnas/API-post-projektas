@@ -1,36 +1,54 @@
+import { fetchData } from "./functions.js";
+
 async function getAlbum() {
   const queryParams = location.search;
   const urlParams = new URLSearchParams(queryParams);
   const albumId = urlParams.get('id');
   
-  const response = await fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}`);
-  const album = await response.json();
-  const userResponse = await fetch(`https://jsonplaceholder.typicode.com/users/${album.userId}`);
-if (!userResponse.ok) {
-  throw new Error(`Could not fetch user data. HTTP status: ${userResponse.status}`);
-}
-const user = await userResponse.json();
+  const response = await fetchData(`https://jsonplaceholder.typicode.com/albums/${albumId}?_expand=user&_embed=photos`);
+  const album = response.data;
+  if (!album) {
+    console.error("Album not found.");
+    return;
+  }
 
-  
+  const userResponse = await fetchData(`https://jsonplaceholder.typicode.com/users/${album.userId}`);
+  const user = userResponse.data;
+
+  if (!user) {
+    console.error("User not found.");
+    return;
+  }
+
   const albumInfo = document.querySelector('#album-info');
   
-  albumInfo.innerHTML = `<h2>${album.title}</h2>
-  <span>Posted by: </span><a href="./user.html?id=${user.id}">${user.name}</a>
-  <h3>Album Images:</h3>
-  <ul>`;
-
+  albumInfo.innerHTML = `
+    <h2>${album.title}</h2>
+    <span>Posted by: </span>
+    <a href="./user.html?id=${user.id}">${user.name}</a>
+    <h3>Album Images:</h3>
+    <ul>
+  `;
 
   const imagesResponse = await fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${albumId}&_limit=10`);
   const images = await imagesResponse.json();
 
-  images.map(image => {
-    albumInfo.innerHTML += `<li><img src="${image.thumbnailUrl}" /></li>`;
+  images.forEach(image => {
+    albumInfo.innerHTML += `
+      <li>
+        <img src="${image.thumbnailUrl}" />
+      </li>
+    `;
   });
   
   albumInfo.innerHTML += '</ul>';
 }
-  
+
 getAlbum();
+
+
+
+
 
   
 (function() {

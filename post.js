@@ -1,47 +1,54 @@
+import { fetchData } from './functions.js';
+import { API_URL } from './config.js';
+
+
 async function getPost() {
   const queryParams = location.search;
   const urlParams = new URLSearchParams(queryParams);
   const postId = urlParams.get('id');
 
-  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
-  const post = await response.json();
+  try {
+    const response = await fetchData(`${API_URL}/posts/${postId}`);
 
-  const postInfo = document.querySelector('#post-info');
+    if (!response.data) {
+      throw new Error('No post data found');
+    }
 
-  postInfo.innerHTML = `
-    <h2>${post.title}</h2>
-    <p>${post.body}</p>
-  `;
+    const post = response.data;
+    const postInfo = document.querySelector('#post-info');
 
-  const userResponse = await fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`);
-  const user = await userResponse.json();
+    postInfo.innerHTML = `<h2>${post.title}</h2><p>${post.body}</p>`;
 
-  postInfo.innerHTML += `
-    <span>Posted by: </span>
-    <a href="./user.html?id=${user.id}">${user.name}</a>
-  `;
+    const userResponse = await fetchData(`${API_URL}/users/${post.userId}`);
 
-  const commentsResponse = await fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`);
-  const comments = await commentsResponse.json();
+    if (!userResponse.data) {
+      throw new Error('No user data found');
+    }
 
-  postInfo.innerHTML += `
-    <h3>Comments:</h3>
-    <ul>
-      ${comments.map(comment => `
-        <li>
-          Name: ${comment.name} Body: ${comment.body} Email:
-          <a href="mailto:${comment.email}">${comment.email}</a>
-        </li>
-      `).join('')}
-    </ul>
-    <span>Other </span>
-    <a href="./user.html?id=${user.id}">${user.name}</a>
-    <span> posts: </span>
-    <a href="./posts.html?user_id=${user.id}">Click Here</a>
-  `;
+    const user = userResponse.data;
+    postInfo.innerHTML += `<span>Posted by: </span><a href="./user.html?id=${user.id}">${user.name}</a>`;
+
+    const commentsResponse = await fetchData(`${API_URL}/comments?postId=${postId}`);
+
+    if (!commentsResponse.data) {
+      throw new Error('No comments data found');
+    }
+
+    const comments = commentsResponse.data;
+    postInfo.innerHTML += `<h3>Comments:</h3><ul> ${comments
+      .map(
+        comment =>
+          `<li>Name: ${comment.name} Body: ${comment.body} Email: <a href="mailto:${comment.email}">${comment.email}</a></li>`
+      )
+      .join('')} </ul><span>Other </span><a href="./user.html?id=${user.id}">${user.name}</a><span> posts: </span><a href="./posts.html?user_id=${user.id}">Click Here</a>`;
+  } catch (error) {
+    console.error(error);
+    document.querySelector('#post-info').innerHTML = '<p>An error occurred while loading the post</p>';
+  }
 }
 
 getPost();
+
 
 
 

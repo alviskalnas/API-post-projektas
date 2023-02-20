@@ -1,3 +1,9 @@
+:root {
+  --black: #333;
+  --lightgray: #e6e7e5;
+  --aliceblue: aliceblue;
+}
+
 html,
 body {
   height: 100%;
@@ -6,12 +12,10 @@ body {
 }
 
 .main-container {
-  width: 100%;
-  max-width: 1900px;
+  width: 1404px;
   margin: 0 auto;
-  height: 100%;
   position: relative;
-  background: #e6e7e5;
+  background: var(--lightgray);
 }
 
 
@@ -26,7 +30,7 @@ body {
 
 
 .album-header {
-  width: 1820px;
+  width: 1320px;
   position: absolute;
   z-index: 2;
   top: 30px;
@@ -36,16 +40,33 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-
+.text {
+  border-block-color: revert;
+  border-color: teal;
+  border-radius: 5px;
+}
+.submit {
+  border-block-color: revert;
+  border-color: teal;
+  border-radius: 5px;
+  font-family: 'Inter';
+}
+.submit:hover {
+  border-block-color: revert;
+  border-color: teal;
+  border-radius: 5px;
+  font-family: 'Inter';
+  background:lightblue
+}
 .main-name {
   display: inline-block;
-  color: aliceblue;
+  color: var(--aliceblue);
   font-size: 30px;
   font-family: 'Inter';
 }
 
 nav {
-  width: 900px;
+  width: 800px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -55,17 +76,46 @@ nav {
 nav ul li {
   display: inline-block;
   padding-left: 40px;
-  font-family: 'Inter';
+  
 }
 
 nav ul li a {
   text-decoration: none;
-  color: aliceblue;
+  color: var(--aliceblue);
   font-size: 30px;
   font-family: 'Inter';
 }
-
-li {
+.album h2 {
+  font-size: 40px;
+  font-family: 'Inter';
+  color: var(--black);
+  padding-left: 30px;
+}
+.album span {
+  font-family: 'Inter';
+  color: var(--black);
+  padding-left: 30px;
+}
+.album a {
+  padding-left: 20px;
+  color: lightblue;
+}
+.album h3 {
+  font-family: 'Inter';
+  color: var(--black);
+  font-size: 20px;
+}
+.album li {
   display: inline-block;
   padding: 10px;
+}
+.footer {
+  width: 100% - 20px;
+  border: inset;
+}
+
+h3 {
+  padding: 0 0 0 40px;
+  color: rgba(91, 173, 58, 1);
+  font-family: 'Inter';
 }

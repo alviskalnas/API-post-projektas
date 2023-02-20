@@ -1,3 +1,5 @@
+
+
 async function getPosts() {
   const queryParams = location.search;
   const urlParams = new URLSearchParams(queryParams);

@@ -1,3 +1,9 @@
+:root {
+    --black: #333;
+    --lightgray: #e6e7e5;
+    --aliceblue: aliceblue;
+}
+
 html,
 body {
     height: 100%;
@@ -6,12 +12,12 @@ body {
 }
 
 .main-con {
-    width: 100%;
-    max-width: 1900px;
-    margin: 0 auto;
+    width: 1404px;
     height: 100%;
+    margin: 0 auto;
+    height: 1420px;
     position: relative;
-    background: #e6e7e5;
+    background: var(--lightgray);
   }
 
 img {
@@ -24,7 +30,7 @@ img {
 }
 
 .user-header {
-    width: 1820px;
+    width: 1320px;
     position: absolute;
     z-index: 2;
     top: 30px;
@@ -34,14 +40,31 @@ img {
     justify-content: space-between;
     align-items: center;
 }
-
+.text {
+    border-block-color: revert;
+    border-color: teal;
+    border-radius: 5px;
+}
+.submit {
+    border-block-color: revert;
+    border-color: teal;
+    border-radius: 5px;
+    font-family: 'Inter';
+}
+.submit:hover {
+    border-block-color: revert;
+    border-color: teal;
+    border-radius: 5px;
+    font-family: 'Inter';
+    background:lightblue
+}
 .main-name {
-    color: aliceblue;
+    color: var(--aliceblue);
     font-size: 30px;
     font-family: 'Inter';
 }
 nav {
-    width: 900px;
+    width: 800px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -55,7 +78,7 @@ nav ul li {
 
 a {
     text-decoration: none;
-    color: aliceblue;
+    color: var(--aliceblue);
     font-size: 30px;
     font-family: 'Inter';
 }
