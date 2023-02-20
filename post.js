@@ -20,10 +20,10 @@ async function getPost() {
   
   postInfo.innerHTML += `<h3>Comments:</h3> <ul> ${comments.map(comment =>`
   <li>
-  Name: ${comment.name} Body: ${comment.body} Email:
+  ${comment.name}. ${comment.body}
   <a href="mailto:${comment.email}">${comment.email}</a>
   </li>
-  `).join('')} </ul> <span>Other </span> <a href='./posts.html?user_id=${user.id}'>${user.name} <span>posts</span></a>` ;
+  `).join('')} </ul> <span>Other </span> <a href='./posts.html?user_id=${user.id}'>${user.name}</a> <span>posts</span> <a href='./posts.html?user_id=${user.id}'>Click here</a>` ;
   }
   
   getPost();
