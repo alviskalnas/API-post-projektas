@@ -1,9 +1,8 @@
 
-import { fetchData } from "./functions.js";
-
 
 async function getAlbums() {
-  const albums = await fetchData('https://jsonplaceholder.typicode.com/albums?_limit=24');
+  const response = await fetch('https://jsonplaceholder.typicode.com/albums?_limit=24');
+  const albums = await response.json();
   const pageContent = document.querySelector('#page-content');
 
   const albumsList = document.createElement('div');
@@ -11,7 +10,8 @@ async function getAlbums() {
   pageContent.append(albumsList);
 
   albums.forEach(async albumData => {
-    const albumWithUserAndPhotos = await fetchData(`https://jsonplaceholder.typicode.com/albums/${albumData.id}?_expand=user&_embed=photos`);
+    const albumWithUserAndPhotosResponse = await fetch(`https://jsonplaceholder.typicode.com/albums/${albumData.id}?_expand=user&_embed=photos`);
+    const albumWithUserAndPhotos = await albumWithUserAndPhotosResponse.json();
     const photos = albumWithUserAndPhotos.photos;
     const randomIndex = Math.floor(Math.random() * photos.length);
     const randomPhoto = photos[randomIndex];
@@ -33,9 +33,6 @@ async function getAlbums() {
 }
 
 getAlbums();
-
-
-
 
 
 
