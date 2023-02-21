@@ -1,32 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Search Results</title>
-  <link rel="stylesheet" href="search.css">
-</head>
-<body>
-    <header>
-        <a href="./index.html"><h2 class="main-name">API-posts</h2></a>
-        <nav>
-            <ul id="nav-links"></ul>
-        </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <title>Search Page</title>
+  </head>
+  <body>
+    <header id="header">
+      <div id="nav-links"></div>
     </header>
-   
-  <h1>Search Results</h1>
-  <div id="results"></div>
-
-  <form action="search.html">
-    <input class="text" type="text" name="query">
-    <select name="category">
-      <option value="posts">Posts</option>
-      <option value="users">Users</option>
-      <option value="comments">Comments</option>
-      <option value="albums">Albums</option>
-      <option value="photos">Photos</option>
-    </select>
-    <input class="submit" type="submit" value="Search">
-  </form>  
-</body>
+    <div id="page-content">
+    </div>
+    <script type="module" src="./search.js"></script>
+  </body>
+</html>

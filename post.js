@@ -1,8 +1,8 @@
 import { fetchData, firstLetterUpperCase, getParams } from './functions.js';
 import { API_URL } from './config.js';
-import { createPageMainHeader } from './header.js';
-
+import { navLinks } from "./config.js";
 async function getPost() {
+
   const queryParams = location.search;
   const urlParams = new URLSearchParams(queryParams);
   const postId = urlParams.get('id');
@@ -41,7 +41,6 @@ async function getPost() {
     <a href='./posts.html?user_id=${user.id}'>${user.name}</a>
   `;
 
-  // Using the imported functions
   const result = fetchData();
   console.log(result);
 
@@ -53,28 +52,13 @@ async function getPost() {
 
   console.log(API_URL);
 
-  createPageMainHeader();
 }
 
 getPost();
 
-
-
-
-
-
-
-
-(function () {
-  const navLinks = [
-    { name: 'Home', href: './index.html' },
-    { name: 'Users', href: './users.html' },
-    { name: 'Albums', href: './albums.html' },
-    { name: 'Posts', href: './posts.html' }
-  ];
-
+function renderNavLinks() {
   const navList = document.querySelector('#nav-links');
-
+  
   navLinks.forEach(link => {
     const navItem = document.createElement('li');
     const navItemLink = document.createElement('a');
@@ -83,16 +67,18 @@ getPost();
     navItem.append(navItemLink);
     navList.append(navItem);
   });
-
+  
   const links = document.querySelectorAll('nav a');
-
+  
   links.forEach(link => {
     if (link.href === window.location.href) {
       link.style.color = 'red';
     }
   });
-})();
-
+}
+window.addEventListener('load', function() {
+  renderNavLinks();
+});
 
 
 

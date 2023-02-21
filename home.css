@@ -13,7 +13,7 @@ body {
 
 .main-con {
     width: 1404px;
-    height: 100%;
+    height: 1200px;
     margin: 0 auto;
     position: relative;
     background: var(--lightgray);
@@ -25,7 +25,14 @@ img {
     width: 100%;
     height: 700px;
 }
-
+.home {
+    position: absolute;
+    font-size: 60px;
+    z-index: 2;
+    top: 350px;
+    left: 615px;
+    color: var(--aliceblue);
+}
 .home-header {
     width: 1320px;
     position: absolute;
@@ -55,15 +62,6 @@ img {
     font-family: 'Inter';
     background:lightblue
 }
-.home-con {
-    position: absolute;
-    z-index: 2;
-    top: 333px;
-    left: 630px;
-    color: var(--aliceblue);
-    font-size: 60px;
-    font-family: 'Inter';
-}
 
 .main-name {
     display: inline-block;
@@ -92,8 +90,33 @@ nav ul li a {
     font-family: 'Inter';
     color: var(--aliceblue);
 }
+.home-con {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Inter';
+}
+.home-con h2 {
+    font-size: 30px;
+}
+.home-con ul li {
+    font-size: 18px;
+}
+.album-item a img {
+    width: 50px;
+    height: 50px;
+}
+.album-item h2 a {
+    font-size: 18px;
+}
+.album-item span a {
+    font-size: 17px;
+}
+h4 {
+    font-size: 18px;
+}
 .footer {
     border: inset;
+    margin-top: 1000px;
 }
 
 h3 {

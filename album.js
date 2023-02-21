@@ -1,6 +1,7 @@
 import { fetchData } from "./functions.js";
-
+import { navLinks } from "./config.js";
 async function getAlbum() {
+
 const queryParams = location.search;
 const urlParams = new URLSearchParams(queryParams);
 const albumId = urlParams.get('id');
@@ -23,34 +24,26 @@ albumInfo.innerHTML += '</ul>';
 
 getAlbum();
 
-
-
+function renderNavLinks() {
+  const navList = document.querySelector('#nav-links');
   
-(function() {
-    const navLinks = [
-      { name: 'Home', href: './index.html' },
-      { name: 'Users', href: './users.html' },
-      { name: 'Albums', href: './albums.html' },
-      { name: 'Posts', href: './posts.html' }
-    ];
+  navLinks.forEach(link => {
+    const navItem = document.createElement('li');
+    const navItemLink = document.createElement('a');
+    navItemLink.textContent = link.name;
+    navItemLink.href = link.href;
+    navItem.append(navItemLink);
+    navList.append(navItem);
+  });
   
-    const navList = document.querySelector('#nav-links');
+  const links = document.querySelectorAll('nav a');
   
-    navLinks.forEach(link => {
-      const navItem = document.createElement('li');
-      const navItemLink = document.createElement('a');
-      navItemLink.textContent = link.name;
-      navItemLink.href = link.href;
-      navItem.append(navItemLink);
-      navList.append(navItem);
-    });
-  
-    const links = document.querySelectorAll('nav a');
-  
-    links.forEach(link => {
-      if (link.href === window.location.href) {
-        link.style.color = 'red';
-      }
-    });
-  })();
-  
+  links.forEach(link => {
+    if (link.href === window.location.href) {
+      link.style.color = 'red';
+    }
+  });
+}
+window.addEventListener('load', function() {
+  renderNavLinks();
+}); 

@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="home.css"><link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
 </head>
 <body>
   <div class="main-con">
@@ -20,12 +21,22 @@
         <ul id="nav-links"></ul>
       </nav>
     </header>
-    <div class="home-con">Home</div>
+    <div class="home">Home</div>
+    <div class="home-con">
+      <h2>Random Users</h2>
+      <div id="users-list"></div>
+
+      <h2>Random Posts</h2>
+      <div id="posts-list"></div>
+
+      <h2>Random Albums</h2>
+      <div id="albums-list"></div>
+    </div>
     <footer class="footer">
       <h3 class="copyright">Copyright © API-posts 2023</h3>
     </footer>
   </div>
       
-      <script src="home.js"></script>
+  <script type="module" src="home.js"></script>
 </body>
 </html>

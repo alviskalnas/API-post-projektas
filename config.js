@@ -1,24 +1,8 @@
 export const API_URL = 'https://jsonplaceholder.typicode.com';
 
-export const MENU_ITEMS = [
-    {
-      title: 'Main',
-      path: 'index.html',
-    },
-    {
-      title: 'Posts',
-      path: 'posts.html',
-    },
-    {
-      title: 'Users',
-      path: 'users.html',
-    },
-    {
-      title: 'Albums',
-      path: 'albums.html',
-    },
-    {
-      title: 'Search',
-      path: 'search.html',
-    },
-  ];
+export const navLinks = [
+  { name: 'Home', href: './index.html' },
+  { name: 'Users', href: './users.html' },
+  { name: 'Albums', href: './albums.html' },
+  { name: 'Posts', href: './posts.html' }
+];

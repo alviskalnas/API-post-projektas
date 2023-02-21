@@ -1,6 +1,7 @@
 import { firstLetterUpperCase } from "./functions.js";
-
+import { navLinks } from "./config.js";
 async function getUserInfo() {
+
     const queryParams = location.search;
     const urlParams = new URLSearchParams(queryParams);
     const userId = urlParams.get('user_id') || 1;
@@ -73,32 +74,26 @@ async function getUserPosts() {
 
 getUserPosts();
 
-
-
-(function () {
-    const navLinks = [
-        { name: 'Home', href: './index.html' },
-        { name: 'Users', href: './users.html' },
-        { name: 'Albums', href: './albums.html' },
-        { name: 'Posts', href: './posts.html' }
-    ];
-
+function renderNavLinks() {
     const navList = document.querySelector('#nav-links');
-
+    
     navLinks.forEach(link => {
-        const navItem = document.createElement('li');
-        const navItemLink = document.createElement('a');
-        navItemLink.textContent = link.name;
-        navItemLink.href = link.href;
-        navItem.append(navItemLink);
-        navList.append(navItem);
+      const navItem = document.createElement('li');
+      const navItemLink = document.createElement('a');
+      navItemLink.textContent = link.name;
+      navItemLink.href = link.href;
+      navItem.append(navItemLink);
+      navList.append(navItem);
     });
-
+    
     const links = document.querySelectorAll('nav a');
-
+    
     links.forEach(link => {
-        if (link.href === window.location.href) {
-            link.style.color = 'red';
-        }
+      if (link.href === window.location.href) {
+        link.style.color = 'red';
+      }
     });
-})();
+  }
+  window.addEventListener('load', function() {
+    renderNavLinks();
+  });

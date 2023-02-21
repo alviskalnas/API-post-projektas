@@ -1,4 +1,7 @@
+import { navLinks } from "./config.js";
+
 async function getUsers() {
+
   const response = await fetch('https://jsonplaceholder.typicode.com/users');
   const users = await response.json();
   const pageContent = document.querySelector('#users-list');
@@ -29,15 +32,7 @@ async function getUsers() {
 
 getUsers();
 
-
-
-const navLinks = [
-    { name: 'Home', href: './index.html' },
-    { name: 'Users', href: './users.html' },
-    { name: 'Albums', href: './albums.html' },
-    { name: 'Posts', href: './posts.html' }
-  ];
-  
+function renderNavLinks() {
   const navList = document.querySelector('#nav-links');
   
   navLinks.forEach(link => {
@@ -56,7 +51,10 @@ const navLinks = [
       link.style.color = 'red';
     }
   });
-
+}
+window.addEventListener('load', function() {
+  renderNavLinks();
+});
 
 
 
