@@ -13,7 +13,7 @@ body {
 
 .main-con {
     width: 1404px;
-    height: 1200px;
+    height: 2168px;
     margin: 0 auto;
     position: relative;
     background: var(--lightgray);
@@ -93,13 +93,20 @@ nav ul li a {
 .home-con {
     display: flex;
     flex-wrap: wrap;
-    font-family: 'Inter';
 }
 .home-con h2 {
     font-size: 30px;
+    width: 10%;
 }
 .home-con ul li {
     font-size: 18px;
+}
+div#users-list {
+    width: 20%;
+}
+.albums-list {
+    display: flex;
+    flex-direction: row;
 }
 .album-item a img {
     width: 50px;
@@ -116,7 +123,7 @@ h4 {
 }
 .footer {
     border: inset;
-    margin-top: 1000px;
+    margin-top: 100px;
 }
 
 h3 {
