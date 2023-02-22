@@ -1,6 +1,6 @@
-import { fetchData } from "./functions.js";
-import { firstLetterUpperCase } from "./functions.js";
-import { navLinks } from "./config.js";
+import { fetchData } from './functions.js';
+import { firstLetterUpperCase } from './functions.js';
+import { navLinks } from './config.js';
 async function getAlbums() {
 
   const albums = await fetchData('https://jsonplaceholder.typicode.com/albums?_limit=24');

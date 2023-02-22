@@ -1,4 +1,4 @@
-import { navLinks } from "./config.js";
+import { navLinks } from './config.js';
 
 function getParameter(name) {
   const urlParams = new URLSearchParams(window.location.search);
@@ -25,7 +25,7 @@ async function init() {
 
   const searchForm = document.createElement('form');
   searchForm.classList.add('d-flex');
-  searchForm.id = "search-form";
+  searchForm.id = 'search-form';
   searchForm.innerHTML = `<div class="input-group me-2">
                             <span class="input-group-text">Keywords</span>
                             <input class="form-control" value="${parameterKeywords ? parameterKeywords : ''}" name="keywords" type="search" placeholder="Search" aria-label="Search">

@@ -1,5 +1,5 @@
-import { fetchData } from "./functions.js";
-import { navLinks } from "./config.js";
+import { fetchData } from './functions.js';
+import { navLinks } from './config.js';
 async function getAlbum() {
 
 const queryParams = location.search;

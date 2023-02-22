@@ -95,8 +95,12 @@ nav ul li a {
     flex-wrap: wrap;
 }
 .home-con h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 30px;
     width: 10%;
+    font-family: 'Inter';
 }
 .home-con ul li {
     font-size: 18px;
@@ -104,21 +108,51 @@ nav ul li a {
 div#users-list {
     width: 20%;
 }
+li.post-item {
+    display: block;
+}
+li.post-item a:nth-child(1) {
+    text-decoration: none;
+    color:#333;
+    padding-right: 20px;
+    font-family: 'Inter';
+}
+li.post-item a:nth-child(2) {
+    color: var(--aliceblue);
+    padding-right: 20px;
+}
+li.user-item {
+    display: block;
+}
 .albums-list {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
 }
+.album-item {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.album-item h2 {
+    width: 200px;
+}
+
 .album-item a img {
     width: 50px;
     height: 50px;
 }
 .album-item h2 a {
     font-size: 18px;
+    text-decoration: none;
+    color: var(--black);
 }
 .album-item span a {
     font-size: 17px;
 }
 h4 {
+    margin: 0;
     font-size: 18px;
 }
 .footer {

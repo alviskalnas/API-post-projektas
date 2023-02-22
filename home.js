@@ -1,10 +1,13 @@
-import { firstLetterUpperCase } from "./functions.js";
-import { navLinks } from "./config.js";
+import { firstLetterUpperCase } from './functions.js';
+import { navLinks } from './config.js';
 
 async function getRandomData() {
-  
-  const usersResponse = await fetch('https://jsonplaceholder.typicode.com/users');
-  const users = await usersResponse.json();
+  const [users, posts, albums] = await Promise.all([
+    fetch('https://jsonplaceholder.typicode.com/users').then(response => response.json()),
+    fetch(`https://jsonplaceholder.typicode.com/posts?_embed=comments&_limit=5`).then(response => response.json()),
+    fetch(`https://jsonplaceholder.typicode.com/albums?_limit=5&_expand=user&_embed=photos`).then(response => response.json())
+  ]);
+
   const randomUsers = users.sort(() => 0.5 - Math.random()).slice(0, 5);
 
   const usersListContainer = document.querySelector('#users-list');
@@ -13,42 +16,33 @@ async function getRandomData() {
   usersListContainer.append(usersList);
 
   for (const user of randomUsers) {
-    const postsResponse = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`);
-    const posts = await postsResponse.json();
+    const userPosts = posts.filter(post => post.userId === user.id);
     const userItem = document.createElement('li');
     userItem.classList.add('user-item');
-    userItem.innerHTML = `<a href="./user.html?user_id=${user.id}">${user.name}</a> (${posts.length})`;
+    userItem.innerHTML = `<a href="./user.html?user_id=${user.id}">${user.name}</a> (${userPosts.length})`;
     usersList.append(userItem);
   }
 
-  const postsResponse = await fetch(`https://jsonplaceholder.typicode.com/posts?_embed=comments&_limit=5`);
-  const posts = await postsResponse.json();
   const postsListContainer = document.querySelector('#posts-list');
   const postsList = document.createElement('ul');
   postsList.classList.add('posts-list');
   postsListContainer.append(postsList);
 
   for (const post of posts) {
-    const userResponse = await fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`);
-    const user = await userResponse.json();
+    const user = users.find(u => u.id === post.userId);
     const postItem = document.createElement('li');
     postItem.classList.add('post-item');
     postItem.innerHTML = `<a href="./post.html?id=${post.id}">${firstLetterUpperCase(post.title)}</a>
     by <a href="./user.html?id=${post.userId}">${user.name}</a>
     with ${post.comments.length} comments`;
-    
     postsList.append(postItem);
   }
 
-  const albumsResponse = await fetch(`https://jsonplaceholder.typicode.com/albums?_limit=5`);
-  const albums = await albumsResponse.json();
   const albumsListContainer = document.querySelector('#albums-list');
   const albumsList = document.createElement('div');
   albumsList.classList.add('albums-list');
   
-  for (const albumData of albums) {
-    const albumWithUserAndPhotos = await fetch(`https://jsonplaceholder.typicode.com/albums/${albumData.id}?_expand=user&_embed=photos`);
-    const album = await albumWithUserAndPhotos.json();
+  for (const album of albums) {
     const randomIndex = Math.floor(Math.random() * album.photos.length);
     const randomPhoto = album.photos[randomIndex];
   
@@ -68,8 +62,8 @@ async function getRandomData() {
   }
   
   albumsListContainer.append(albumsList);
-  
 }
+
 getRandomData()
 
 function renderNavLinks() {

@@ -1,5 +1,5 @@
-import { firstLetterUpperCase } from "./functions.js";
-import { navLinks } from "./config.js";
+import { firstLetterUpperCase } from './functions.js';
+import { navLinks } from './config.js';
 async function getUserInfo() {
 
     const queryParams = location.search;

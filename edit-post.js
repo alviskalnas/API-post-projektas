@@ -1,5 +1,5 @@
-import { fetchData } from "./functions.js";
-import { API_URL } from "./config.js";
+import { fetchData } from './functions.js';
+import { API_URL } from './config.js';
 
 async function init() {
   const id = 5;

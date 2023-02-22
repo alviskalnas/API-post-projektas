@@ -1,33 +1,25 @@
 import { fetchData, firstLetterUpperCase, getParams } from './functions.js';
 import { API_URL } from './config.js';
 import { navLinks } from "./config.js";
-async function getPost() {
 
+
+async function getPost() {
   const queryParams = location.search;
   const urlParams = new URLSearchParams(queryParams);
   const postId = urlParams.get('id');
 
-  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
-  const post = await response.json();
+  const [post, user, comments] = await Promise.all([
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`).then(response => response.json()),
+    fetch(`https://jsonplaceholder.typicode.com/users/${postId}`).then(response => response.json()),
+    fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`).then(response => response.json())
+  ]);
 
   const postInfo = document.querySelector('#post-info');
   postInfo.innerHTML = `
     <h2>${post.title}</h2> 
     <p>${post.body}</p>
     <span>Posted by: </span> 
-  `;
-
-  const userResponse = await fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`);
-  const user = await userResponse.json();
-
-  postInfo.innerHTML += `
     <a href='./user.html?id=${user.id}'>${user.name}</a>
-  `;
-
-  const commentsResponse = await fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`);
-  const comments = await commentsResponse.json();
-
-  postInfo.innerHTML += `
     <h3>Comments:</h3> 
     <ul> 
       ${comments.map(comment => `
@@ -41,7 +33,7 @@ async function getPost() {
     <a href='./posts.html?user_id=${user.id}'>${user.name}</a>
   `;
 
-  const result = fetchData();
+  const result = await fetchData(`https://jsonplaceholder.typicode.com/posts/${postId}`);
   console.log(result);
 
   const name = 'john';
@@ -51,10 +43,12 @@ async function getPost() {
   console.log(params);
 
   console.log(API_URL);
-
 }
 
 getPost();
+
+
+
 
 function renderNavLinks() {
   const navList = document.querySelector('#nav-links');
